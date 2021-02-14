@@ -1,24 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Summery from './summery/Summery'
+import {useState} from "react";
+import ValueContext from "./ValueContext";
 function App() {
+  let balance = useState(0)
   return (
+    <ValueContext.Provider value ={balance}>
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Summery/>
       </header>
     </div>
+    </ValueContext.Provider>
+
   );
 }
 
