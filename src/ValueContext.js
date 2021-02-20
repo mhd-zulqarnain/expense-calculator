@@ -1,5 +1,5 @@
 import React from "react";
 
-const ValueContext =React.createContext(0)
+const GlobalContext = React.createContext({summery :{expense: 0 , balance: 0},data :[]})
 
-export default ValueContext
+export default GlobalContext
