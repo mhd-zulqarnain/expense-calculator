@@ -1,25 +1,20 @@
 import './App.css';
-import Summery from './summery/Summery'
-import Notes from './notes/Notes'
-import {useState} from "react";
-import GlobalContext from "./ValueContext";
+import { Header } from './components/Header';
+import { Expenses } from './components/Expenses';
+import { Balance } from './components/Balance';
+import { TransactionList } from './components/TransactionList';
+import { AddTransaction } from './components/AddTransaction';
 function App() {
-  let intialExpense = 0
-  let intialBalance = 1000
-
-  let balance = {expense: intialExpense , balance: intialBalance}
-
-  let state = useState(balance)
-  let list = useState([])
   return (
-    <GlobalContext.Provider value ={{summery:state , data:list}}>
     <div className="App">
-      <header className="App-header">
-        <Summery/>
-        <Notes/>
-      </header>
+      <Header/>
+      <div className="container">
+        <Balance/>
+        <Expenses/>
+        <TransactionList/>
+        <AddTransaction/>
+      </div> 
     </div>
-    </GlobalContext.Provider>
 
   );
 }
