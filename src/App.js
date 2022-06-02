@@ -7,16 +7,17 @@ import reducer from './context/AppReducer'
 function App() {
   const tmp = { id: Date.now(), amount: "as" }
   const arr = [
-    tmp, tmp
+    { id: Date.now(), amount: "as" },  { id: Date.now(), amount: "asd" }
   ]
   const [transactions, dispatch] = useReducer(reducer, arr)
 
-  console.log(transactions)
   return (
     <div className="App">
       <div className="container">
-        {/* <AddTransactions dispatch={dispatch} transactions={transactions} /> */}
-        <Transactions transactions={transactions} dispatch={dispatch} />
+        <AddTransactions dispatch={dispatch} transactions={transactions} />
+        {transactions.map(item=>{
+          return <Transactions  transactions={transactions} />
+        })}
       </div>
     </div>
 

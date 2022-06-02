@@ -12,6 +12,7 @@ const AddTransactions = ({ dispatch, transactions }) => {
         console.log(transactions)
     }
 
+    console.log(transactions)
 
     return <>
         <h1>Add transaction</h1>
