@@ -2,15 +2,17 @@ import './App.css';
 import TransactionsHistory from './components/TransactionsHistory';
 import AddTransactions from './components/AddTransactions';
 import { ExpenseProvider } from './context/TransactionProvider';
+import Summery from './components/Summery';
 
 function App() {
-  
+
   return (
     <div className="App">
-        <ExpenseProvider>
-          <TransactionsHistory/>
-          <AddTransactions/>
-        </ExpenseProvider>
+      <ExpenseProvider>
+        <Summery/>
+        <AddTransactions />
+        <TransactionsHistory />
+      </ExpenseProvider>
 
     </div>
 

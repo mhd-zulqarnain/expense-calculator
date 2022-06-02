@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ExpenseContext } from '../context/TransactionProvider';
 
-const Transaction = ({transaction}) => {
+const Transaction = ({ transaction }) => {
+    const { delTransaction } = useContext(ExpenseContext)
+    const removeTransaction = () => {
+        delTransaction(transaction)
+    }
     return (
         <div>
-            <h1>{transaction.amount}</h1>
+            <p>{transaction.amount}</p>
+            <button onClick={removeTransaction}>delete</button>
         </div>);
 }
 

@@ -1,4 +1,3 @@
-import React from 'react';
 
 export const ACTIONS = {
     ADD: "add",
@@ -7,25 +6,17 @@ export const ACTIONS = {
 }
 export const reducer = (transactions, action) => {
     switch (action.type) {
-        case ACTIONS.ADD:{
-        console.log( action.payload)
-        console.log( action.type)
-
+        case ACTIONS.ADD: {
             return [...transactions, action.payload]
         }
-        case ACTIONS.REMOVE:
-            return transactions.filter(item => item.id !== action.payload)
+        case ACTIONS.REMOVE: {
+            let id = action.payload.id
+            return transactions.filter(item => item.id !== id)
+        }
         case ACTIONS.UPDATE:
             return transactions.filter(item => item.id !== action.payload)
-        default:{
-            console.log( action.payload)
-            console.log( action.type)  
+        default: {
+            return transactions
         }
     }
 }
-
-const AppReducer = () => {
-    return <div></div>;
-}
-
-export default AppReducer;

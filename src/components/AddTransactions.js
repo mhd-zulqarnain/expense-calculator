@@ -14,7 +14,7 @@ const AddTransactions = () => {
     return <>
         <h1>Add transaction</h1>
         <form onSubmit={submitTransaction}>
-            <input type="text"
+            <input type="number"
                 value={transaction}
                 onChange={(e) => setTransaction(e.target.value)} />
         </form>
