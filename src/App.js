@@ -3,6 +3,7 @@ import Transactions from './components/Transactions';
 import AddTransactions from './components/AddTransactions';
 import { useState, useReducer } from 'react'
 import reducer from './context/AppReducer'
+import { ExpenseProvider } from './context/TransactionProvider';
 
 function App() {
   const tmp = { id: Date.now(), amount: "as" }
@@ -13,15 +14,21 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container">
-        <AddTransactions dispatch={dispatch} transactions={transactions} />
-        {transactions.map(item=>{
-          return <Transactions  transactions={transactions} />
-        })}
-      </div>
+        <ExpenseProvider>
+          <Transactions/>
+        </ExpenseProvider>
+
     </div>
 
   );
 }
 
 export default App;
+
+
+{/* <div className="container">
+        <AddTransactions dispatch={dispatch} transactions={transactions} />
+        {transactions.map(item=>{
+          return <Transactions  transactions={transactions} />
+        })}
+      </div> */}
