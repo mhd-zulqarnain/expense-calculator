@@ -1,18 +1,16 @@
-import React from 'react';
-import { useState } from 'react'
-import { ACTIONS } from '../context/AppReducer'
-const AddTransactions = ({ dispatch, transactions }) => {
+import React, { useState, useContext } from 'react';
+import { ExpenseContext } from '../context/TransactionProvider';
 
+const AddTransactions = () => {
+    const {addTransaction} = useContext(ExpenseContext)
     const [transaction, setTransaction] = useState("")
 
     const submitTransaction = (e) => {
         e.preventDefault()
-        dispatch({ type: ACTIONS.ADD, payload: { id: Date.now(), amount: transaction } })
+        addTransaction( { id: Date.now(), amount: transaction } )
+        // dispatch({ type: ACTIONS.ADD, payload: { id: Date.now(), amount: transaction } })
         setTransaction("")
-        console.log(transactions)
     }
-
-    console.log(transactions)
 
     return <>
         <h1>Add transaction</h1>
