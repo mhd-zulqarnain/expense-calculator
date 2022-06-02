@@ -8,7 +8,6 @@ const AddTransactions = () => {
     const submitTransaction = (e) => {
         e.preventDefault()
         addTransaction( { id: Date.now(), amount: transaction } )
-        // dispatch({ type: ACTIONS.ADD, payload: { id: Date.now(), amount: transaction } })
         setTransaction("")
     }
 
