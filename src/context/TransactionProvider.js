@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import { ACTIONS, reducer } from './AppReducer'
 
-const initState = [{ id: Date.now(), amount: 12 }]
+const initState = []
 export const ExpenseContext = React.createContext(initState)
 
 
