@@ -5,7 +5,6 @@ import Transaction from './Transaction';
 const TransactionsHistory = () => {
     const transactions = useContext(ExpenseContext)
     const history = Array.from(transactions.transactions) 
-    console.log(history)
     return (
         <div>
             {history.map(item => {

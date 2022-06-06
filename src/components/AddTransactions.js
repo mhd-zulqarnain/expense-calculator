@@ -2,12 +2,12 @@ import React, { useState, useContext } from 'react';
 import { ExpenseContext } from '../context/TransactionProvider';
 
 const AddTransactions = () => {
-    const {addTransaction} = useContext(ExpenseContext)
+    const { addTransaction } = useContext(ExpenseContext)
     const [transaction, setTransaction] = useState("")
 
     const submitTransaction = (e) => {
         e.preventDefault()
-        addTransaction( { id: Date.now(), amount: transaction } )
+        addTransaction({ id: Date.now(), amount: parseInt(transaction) })
         setTransaction("")
     }
 
