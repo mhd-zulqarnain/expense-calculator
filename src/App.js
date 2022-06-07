@@ -1,19 +1,30 @@
 import './App.css';
-import Summery from './summery/Summery'
-import {useState} from "react";
-import ValueContext from "./ValueContext";
+import TransactionsHistory from './components/TransactionsHistory';
+import AddTransactions from './components/AddTransactions';
+import { ExpenseProvider } from './context/TransactionProvider';
+import Summery from './components/Summery';
+
 function App() {
-  let balance = useState(0)
+
   return (
-    <ValueContext.Provider value ={balance}>
     <div className="App">
-      <header className="App-header">
+      <ExpenseProvider>
         <Summery/>
-      </header>
+        <AddTransactions />
+        <TransactionsHistory />
+      </ExpenseProvider>
+
     </div>
-    </ValueContext.Provider>
 
   );
 }
 
 export default App;
+
+
+{/* <div className="container">
+        <AddTransactions dispatch={dispatch} transactions={transactions} />
+        {transactions.map(item=>{
+          return <Transactions  transactions={transactions} />
+        })}
+      </div> */}
