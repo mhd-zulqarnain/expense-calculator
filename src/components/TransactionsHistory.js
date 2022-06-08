@@ -10,11 +10,9 @@ const TransactionsHistory = () => {
         <div>
             <h2>Transaction history</h2>
             {
-                transactionAvailable ?
-                    history.map(item => {
+                history.map(item => {
                         return <Transaction key={item.id} transaction={item} />
-                    }) :
-                    <h3>No transaction avaliable</h3>
+                    }) 
             }
         </div>);
 }
