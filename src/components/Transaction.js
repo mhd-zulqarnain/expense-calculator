@@ -8,11 +8,14 @@ const Transaction = ({ transaction }) => {
     }
     const sign = (transaction.amount) > 0 ? "" : "-"
     return (
-        <div>
-            <br /> 
-            <b>{transaction.title}</b> {sign}${Math.abs(transaction.amount)} <button onClick={removeTransaction}>delete</button>
-        </div>);
+        <div className="card" style={{ "width": "18rem" }}>
+            <div className="card-body">
+                <h2 className="card-title">{transaction.title}</h2>
+                <p className="card-text">Transaction Amount :{sign}${Math.abs(transaction.amount)}</p>
+                <button onClick={removeTransaction} className="btn btn-primary" >Delete Transaction</button>
+            </div>
+        </div>
+    );
 }
-
 
 export default Transaction;

@@ -10,22 +10,35 @@ const AddTransactions = () => {
         e.preventDefault()
         addTransaction({ id: Date.now(), amount: parseInt(transaction), title: title })
         setTransaction("")
+        setTitle("")
     }
 
     return <>
         <h1>Add transaction</h1>
-        <form onSubmit={submitTransaction}>
-            <label>Title</label>
+        <form onSubmit={submitTransaction}
+            className="form-group"
+            novalidate>
+            <label htmlFor="validationtitle">Title</label>
             <input type="text"
                 value={title}
+                id="validationtitle"
+                required
                 onChange={(e) => setTitle(e.target.value)} />
 
-            <label>Amount</label>
+            <div className="invalid-feedback">
+                Please provide a valid title.
+            </div>
+            <label htmlFor="validateAmount">Amount</label>
             <input type="number"
                 value={transaction}
+                required
+                id="validateAmount"
                 onChange={(e) => setTransaction(e.target.value)} />
-            <br />
-            <input type="submit" value="Submit" />
+            <div className="invalid-feedback">
+                Please provide a valid amount.
+            </div>
+
+            <button type="submit" className="btn btn-default">Submit</button>
 
         </form>
     </>;
